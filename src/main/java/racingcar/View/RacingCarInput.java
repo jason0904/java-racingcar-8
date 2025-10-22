@@ -18,6 +18,7 @@ public class RacingCarInput {
         System.out.println(INPUT_CARNAME_STRING);
         inputString = Console.readLine();
         RacingCarInputValidation.validateBlankString(inputString);
+        RacingCarInputValidation.validateStringLastComma(inputString);
 
         carNames = List.of(inputString.split(","));
         RacingCarInputValidation.validateCarNameBlank(carNames);
@@ -34,6 +35,7 @@ public class RacingCarInput {
         RacingCarInputValidation.validateBlankString(inputString);
         RacingCarInputValidation.validateCountIsNumber(inputString);
         RacingCarInputValidation.vaildateCountIsInteger(inputString);
+
         inputCount = Integer.parseInt(inputString);
         RacingCarInputValidation.validateCountIsPositive(inputCount);
 

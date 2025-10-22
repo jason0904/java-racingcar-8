@@ -12,6 +12,12 @@ public class RacingCarInputValidation {
         }
     }
 
+    public static void validateStringLastComma(String inputString) {
+        if(inputString.lastIndexOf(",") == inputString.length()-1) {
+            throw new IllegalArgumentException(ErrorMessage.STRING_END_COMMA.getMessage());
+        }
+    }
+
     public static void validateCarNameDuplicate(List<String> carNames) {
         Set<String> duplicate = new LinkedHashSet<>();
         Set<String> unique = new LinkedHashSet<>();
