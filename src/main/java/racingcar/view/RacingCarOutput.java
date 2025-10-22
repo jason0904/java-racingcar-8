@@ -5,7 +5,7 @@ import racingcar.model.Car;
 
 public class RacingCarOutput {
 
-    private final String FINAL_WINNER_MESSAGE = "최종 우승자: ";
+    private final String FINAL_WINNER_MESSAGE = "최종 우승자 : ";
     private final String ROUND_RESULT_MESSAGE = "실행 결과";
 
     public void printFinalWinner(List<String> winnerNames) {
