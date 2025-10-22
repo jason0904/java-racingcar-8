@@ -4,12 +4,12 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RaceService {
+public class RacingService {
 
     private final CarRepository carRepository;
     private final int MINIMUM_MOVE_NUMBER = 4;
 
-    public RaceService(CarRepository carRepository) {
+    public RacingService(CarRepository carRepository) {
         this.carRepository = carRepository;
     }
 
