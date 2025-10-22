@@ -31,12 +31,13 @@ public class RaceService {
         int maxRace = -1;
         List<String> winners = new ArrayList<>();
         for(Car car : carRepository.getCarList()) {
-            if(car.getPosition() >= maxRace) {
+            if(car.getPosition() > maxRace) {
+                winners.clear();
                 maxRace = car.getPosition();
                 winners.add(car.getName());
             }
-            else {
-               winners.clear();
+            else if(car.getPosition() == maxRace) {
+                winners.add(car.getName());
             }
         }
         return winners;
