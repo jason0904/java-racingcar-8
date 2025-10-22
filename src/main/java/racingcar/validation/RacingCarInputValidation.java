@@ -42,6 +42,14 @@ public class RacingCarInputValidation {
         }
     }
 
+    public static void validateCarNameLengthLimit(List<String> carNames) {
+        for (String name : carNames) {
+            if(name.length() >= 6) {
+                throw new IllegalArgumentException(ErrorMessage.CARNAME_LIMIT_ERROR.getMessage());
+            }
+        }
+    }
+
     public static void validateCountIsNumber(String inputString) {
         try {
             Integer.parseInt(inputString);

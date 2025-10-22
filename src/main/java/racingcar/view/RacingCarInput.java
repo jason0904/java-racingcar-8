@@ -23,6 +23,7 @@ public class RacingCarInput {
         carNames = List.of(inputString.split(","));
         RacingCarInputValidation.validateCarNameBlank(carNames);
         RacingCarInputValidation.validateCarNameDuplicate(carNames);
+        RacingCarInputValidation.validateCarNameLengthLimit(carNames);
 
         return Collections.unmodifiableSet(Set.copyOf(carNames));
     }

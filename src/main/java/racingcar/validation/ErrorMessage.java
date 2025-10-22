@@ -5,6 +5,7 @@ public enum ErrorMessage {
     STRING_END_COMMA("문자열의 마지막이 쉼표입니다."),
     CARNAME_DUPLICATE_ERROR("자동차 이름이 겹칩니다."),
     CARNAME_BLANK_ERROR("자동차 이름이 공백입니다."),
+    CARNAME_LIMIT_ERROR("자동차 이름은 5자까지 가능합니다."),
     COUNT_NOT_NUMBER_ERROR("반복 횟수 입력이 숫자가 아닙니다."),
     COUNT_IS_ZERO_ERROR("반복 횟수 입력은 0이 들어갈 수 없습니다."),
     COUNT_NOT_INTEGER_ERROR("반복 횟수 입력이 정수가 아닙니다."),
