@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class RaceService {
+public class RaceService {
 
     private final CarRepository carRepository;
     private final int MINIMUM_MOVE_NUMBER = 4;
