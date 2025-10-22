@@ -65,7 +65,7 @@ public class RacingCarInputTest {
     @DisplayName("시도할 횟수가 실수일경우 테스트")
     public void countIsNotIntegerTest() {
         assertThrows(IllegalArgumentException.class, () -> {
-            RacingCarInputValidation.vaildateCountIsInteger("1.5");
+            RacingCarInputValidation.validateCountIsInteger("1.5");
         });
     }
 

@@ -58,7 +58,7 @@ public class RacingCarInputValidation {
         }
     }
 
-    public static void vaildateCountIsInteger(String inputString) {
+    public static void validateCountIsInteger(String inputString) {
         try {
             Integer.parseInt(inputString);
         } catch (NumberFormatException e) {

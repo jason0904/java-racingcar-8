@@ -35,7 +35,7 @@ public class RacingCarInput {
         inputString = Console.readLine();
         RacingCarInputValidation.validateBlankString(inputString);
         RacingCarInputValidation.validateCountIsNumber(inputString);
-        RacingCarInputValidation.vaildateCountIsInteger(inputString);
+        RacingCarInputValidation.validateCountIsInteger(inputString);
 
         inputCount = Integer.parseInt(inputString);
         RacingCarInputValidation.validateCountIsPositive(inputCount);
