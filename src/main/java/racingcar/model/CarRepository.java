@@ -9,7 +9,7 @@ public class CarRepository {
 
     private final List<Car> carList = new ArrayList<>();
 
-    public CarRepository(Set<String> carNames) {
+    public void addCarList(Set<String> carNames) {
         for(String name : carNames) {
             carList.add(new Car(name));
         }
