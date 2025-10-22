@@ -16,6 +16,7 @@ public class RacingCarOutput {
         for(Car car : result) {
             System.out.println(car.getName() + " : " + printCarMove(car.getPosition()));
         }
+        System.out.println();
     }
 
     public String printCarMove(int position) {
