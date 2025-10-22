@@ -45,6 +45,15 @@ public class RacingCarInputTest {
     }
 
     @Test
+    @DisplayName("자동차 이름이 6자 이상일때 예외 테스트")
+    public void carNameLengthLimitTest() {
+        String string = "pobi,abcdefghijklmn";
+        assertThrows(IllegalArgumentException.class, () -> {
+            RacingCarInputValidation.validateCarNameLengthLimit(java.util.List.of(string.split(",")));
+        });
+    }
+
+    @Test
     @DisplayName("시도할 횟수가 숫자가 아닐경우 테스트")
     public void countIsNotNumberTest() {
         assertThrows(IllegalArgumentException.class, () -> {
