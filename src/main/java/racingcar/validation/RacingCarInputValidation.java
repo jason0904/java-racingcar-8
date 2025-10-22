@@ -1,4 +1,4 @@
-package racingcar.Validation;
+package racingcar.validation;
 
 import java.util.LinkedHashSet;
 import java.util.List;

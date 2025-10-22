@@ -1,10 +1,10 @@
-package racingcar.View;
+package racingcar.view;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.Validation.RacingCarInputValidation;
+import racingcar.validation.RacingCarInputValidation;
 
 public class RacingCarInput {
 

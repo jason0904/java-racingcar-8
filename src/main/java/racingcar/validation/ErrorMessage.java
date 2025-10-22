@@ -1,4 +1,4 @@
-package racingcar.Validation;
+package racingcar.validation;
 
 public enum ErrorMessage {
     STRING_BLANK_ERROR("빈 문자열을 입력하셨습니다."),
