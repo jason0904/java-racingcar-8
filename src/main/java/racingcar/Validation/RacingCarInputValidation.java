@@ -28,7 +28,7 @@ public class RacingCarInputValidation {
             }
         }
 
-        if (duplicate.isEmpty()) {
+        if (!duplicate.isEmpty()) {
             throw new IllegalArgumentException(
                     ErrorMessage.CARNAME_DUPLICATE_ERROR + "겹치는 이름 : " + String.join(", ", duplicate));
         }
