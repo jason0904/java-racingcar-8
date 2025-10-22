@@ -4,9 +4,10 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RaceService {
+public abstract class RaceService {
 
     private final CarRepository carRepository;
+    private final int MINIMUM_MOVE_NUMBER = 4;
 
     public RaceService(CarRepository carRepository) {
         this.carRepository = carRepository;
@@ -20,7 +21,7 @@ public class RaceService {
 
     public void runRaceRound() {
         for(Car car : carRepository.getCarList()) {
-            if(Randoms.pickNumberInRange(0, 9) >= 4) {
+            if(Randoms.pickNumberInRange(0, 9) >= MINIMUM_MOVE_NUMBER) {
                 car.move();
             }
         }
