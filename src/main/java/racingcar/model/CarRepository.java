@@ -18,4 +18,13 @@ public class CarRepository {
     public List<Car> getCarList() {
         return Collections.unmodifiableList(carList);
     }
+
+    public void updateCarMove(String carName) {
+        for(Car car : carList) {
+            if(car.getName().equals(carName)) {
+                car.move();
+            }
+        }
+    }
+
 }

@@ -22,7 +22,7 @@ public abstract class RaceService {
     public void runRaceRound() {
         for(Car car : carRepository.getCarList()) {
             if(Randoms.pickNumberInRange(0, 9) >= MINIMUM_MOVE_NUMBER) {
-                car.move();
+                carRepository.updateCarMove(car.getName());
             }
         }
     }
