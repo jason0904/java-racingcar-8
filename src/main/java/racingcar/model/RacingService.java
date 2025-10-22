@@ -13,12 +13,6 @@ public class RacingService {
         this.carRepository = carRepository;
     }
 
-    public void startRace(int round) {
-        for(int i = 0; i < round; i++) {
-            runRaceRound();
-        }
-    }
-
     public void runRaceRound() {
         for(Car car : carRepository.getCarList()) {
             if(Randoms.pickNumberInRange(0, 9) >= MINIMUM_MOVE_NUMBER) {
