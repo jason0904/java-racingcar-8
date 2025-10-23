@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import racingcar.validation.PlayCountValiation;
+import racingcar.validation.PlayCountValidation;
 
 public class PlayCount {
 
@@ -8,9 +8,9 @@ public class PlayCount {
 
     public PlayCount(String playCount) {
 
-        PlayCountValiation.validateCountIsNumber(playCount);
-        PlayCountValiation.validateCountIsInteger(playCount);
-        PlayCountValiation.validateCountIsPositive(playCount);
+        PlayCountValidation.validateCountIsNumber(playCount);
+        PlayCountValidation.validateCountIsInteger(playCount);
+        PlayCountValidation.validateCountIsPositive(playCount);
 
         this.playCount = Integer.parseInt(playCount);
     }

@@ -1,6 +1,6 @@
 package racingcar.validation;
 
-public class PlayCountValiation {
+public class PlayCountValidation {
 
     public static void validateCountIsNumber(String inputString) {
         try {
