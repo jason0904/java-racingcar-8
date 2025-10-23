@@ -9,9 +9,7 @@ public class CarRepository {
     private final List<Car> carList = new ArrayList<>();
 
     public void addCarList(List<String> carNames) {
-        for(String name : carNames) {
-            carList.add(new Car(name));
-        }
+        carNames.forEach(name -> carList.add(new Car(name)));
     }
 
     public List<Car> getCarList() {
@@ -19,11 +17,10 @@ public class CarRepository {
     }
 
     public void updateCarMove(String carName) {
-        for(Car car : carList) {
-            if(car.getName().equals(carName)) {
-                car.move();
-            }
-        }
+        carList.stream()
+                .filter(car -> car.getName().equals(carName))
+                .findFirst()
+                .ifPresent(Car::move);
     }
 
 }
