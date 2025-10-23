@@ -3,6 +3,7 @@ package racingcar.view;
 import java.util.Collections;
 import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.model.PlayCount;
 import racingcar.validation.RacingCarInputValidation;
 
 public class RacingCarInput {
@@ -27,19 +28,13 @@ public class RacingCarInput {
         return Collections.unmodifiableList(carNames);
     }
 
-    public int InputPlayCount() {
+    public PlayCount InputPlayCount() {
         String inputString;
-        int inputCount;
         System.out.println(INPUT_COUNT_STRING);
         inputString = Console.readLine();
         RacingCarInputValidation.validateBlankString(inputString);
-        RacingCarInputValidation.validateCountIsNumber(inputString);
-        RacingCarInputValidation.validateCountIsInteger(inputString);
 
-        inputCount = Integer.parseInt(inputString);
-        RacingCarInputValidation.validateCountIsPositive(inputCount);
-
-        return inputCount;
+        return new PlayCount(inputString);
     }
 
 

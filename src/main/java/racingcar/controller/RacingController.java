@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.CarRepository;
+import racingcar.model.PlayCount;
 import racingcar.model.RacingService;
 import racingcar.view.RacingCarInput;
 import racingcar.view.RacingCarOutput;
@@ -11,7 +12,7 @@ public class RacingController {
     private final RacingService racingService;
     private final RacingCarInput racingCarInput = new RacingCarInput();
     private final RacingCarOutput racingCarOutput = new RacingCarOutput();
-    private int round;
+    private PlayCount playCount;
 
     public RacingController(CarRepository carRepository) {
         this.carRepository = carRepository;
@@ -27,12 +28,12 @@ public class RacingController {
 
     public void runInit() {
         carRepository.addCarList(racingCarInput.InputCarNames());
-        round = racingCarInput.InputPlayCount();
+        playCount = racingCarInput.InputPlayCount();
     }
 
     public void runRaceRound() {
         racingCarOutput.printGameResultMessage();
-        for(int i = 0; i < round; i++) {
+        for(int i = 0; i < playCount.getPlayCount(); i++) {
             racingService.runRaceRound();
             racingCarOutput.printGameResult(carRepository.getCarList());
         }

@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.model.PlayCount;
 import racingcar.validation.ErrorMessage;
 import racingcar.validation.RacingCarInputValidation;
 
@@ -57,7 +58,7 @@ public class RacingCarInputTest {
     @DisplayName("시도할 횟수가 숫자가 아닐경우 테스트")
     public void countIsNotNumberTest() {
         assertThrows(IllegalArgumentException.class, () -> {
-            RacingCarInputValidation.validateCountIsNumber("a");
+            PlayCount playCount = new PlayCount("a");
         });
     }
 
@@ -65,7 +66,7 @@ public class RacingCarInputTest {
     @DisplayName("시도할 횟수가 실수일경우 테스트")
     public void countIsNotIntegerTest() {
         assertThrows(IllegalArgumentException.class, () -> {
-            RacingCarInputValidation.validateCountIsInteger("1.5");
+            PlayCount playCount = new PlayCount("1.5");
         });
     }
 
@@ -73,7 +74,7 @@ public class RacingCarInputTest {
     @DisplayName("시도할 횟수가 0일때 테스트")
     public void countIsZeroTest() {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            RacingCarInputValidation.validateCountIsPositive(0);
+            PlayCount playCount = new PlayCount("0");
         });
         assertEquals(ErrorMessage.COUNT_IS_ZERO_ERROR.getMessage(), exception.getMessage());
     }
@@ -82,7 +83,7 @@ public class RacingCarInputTest {
     @DisplayName("시도할 횟수가 음수일때 테스트")
     public void countIsNegativeTest(){
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            RacingCarInputValidation.validateCountIsPositive(-1);
+            PlayCount playCount = new PlayCount("-1");
         });
         assertEquals(ErrorMessage.COUNT_NOT_POSITIVE_ERROR.getMessage(), exception.getMessage());
     }
