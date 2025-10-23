@@ -22,7 +22,7 @@ public class RacingCarOutputTest {
             RacingCarOutput racingCarOutput = new RacingCarOutput();
             racingCarOutput.printFinalWinner(java.util.List.of("name"));
 
-            String expected = "최종 우승자: " + "name";
+            String expected = "최종 우승자 : " + "name";
             String actual = outputStream.toString().trim();
 
             assertEquals(expected, actual);
