@@ -1,41 +1,45 @@
 package racingcar.validation;
 
-import java.util.LinkedHashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class CarListValidation {
 
     public static void validateCarNameDuplicate(List<String> carNames) {
-        Set<String> duplicate = new LinkedHashSet<>();
-        Set<String> unique = new LinkedHashSet<>();
+        Set<String> duplicateCarName = carNames.stream()
+                .collect(Collectors.groupingBy(name -> name, LinkedHashMap::new, Collectors.counting()))
+                .entrySet().stream()
+                .filter(duplicateCarCount -> duplicateCarCount.getValue() > 1)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toSet());
 
-        for (String name : carNames) {
-            if (!unique.add(name)) {
-                duplicate.add(name);
-            }
-        }
-
-        if (!duplicate.isEmpty()) {
-            throw new IllegalArgumentException(
-                    ErrorMessage.CARNAME_DUPLICATE_ERROR + "겹치는 이름 : " + String.join(", ", duplicate));
+        if(!duplicateCarName.isEmpty()) {
+            throw new IllegalArgumentException(ErrorMessage.CARNAME_DUPLICATE_ERROR.getMessage() + "\n겹치는 이름 : "
+                    + String.join(", ", duplicateCarName));
         }
     }
 
     public static void validateCarNameBlank(List<String> carNames) {
-        for (String name : carNames) {
-            if (name.isBlank()) {
-                throw new IllegalArgumentException(ErrorMessage.CARNAME_BLANK_ERROR.getMessage());
-            }
-        }
+        carNames.stream()
+                .filter(String::isBlank)
+                .findFirst()
+                .ifPresent(err -> {throw new IllegalArgumentException(ErrorMessage.CARNAME_BLANK_ERROR.getMessage());
+                });
     }
 
     public static void validateCarNameLengthLimit(List<String> carNames) {
-        for (String name : carNames) {
-            if(name.length() >= 6) {
-                throw new IllegalArgumentException(ErrorMessage.CARNAME_LIMIT_ERROR.getMessage());
-            }
+        List<String> CarNamesOverLengthLimit = carNames.stream()
+                .filter(name -> name.length() > 5)
+                .toList();
+
+        if(!CarNamesOverLengthLimit.isEmpty()) {
+            throw new IllegalArgumentException(ErrorMessage.CARNAME_LIMIT_ERROR.getMessage() + "\n5자 이상인 자동차 이름 : "
+            + String.join(", ", CarNamesOverLengthLimit));
         }
+
     }
 
 }
