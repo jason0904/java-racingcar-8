@@ -1,6 +1,5 @@
 package racingcar.view;
 
-import java.util.Collections;
 import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.PlayCount;
@@ -26,7 +25,7 @@ public class RacingCarInput {
         CarListValidation.validateCarNameLengthLimit(carNames);
         CarListValidation.validateCarNameDuplicate(carNames);
 
-        return Collections.unmodifiableList(carNames);
+        return carNames;
     }
 
     public PlayCount InputPlayCount() {
