@@ -6,19 +6,11 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.model.PlayCount;
+import racingcar.validation.CarListValidation;
 import racingcar.validation.ErrorMessage;
 import racingcar.validation.RacingCarInputValidation;
 
 public class RacingCarInputTest {
-
-    @Test
-    @DisplayName("자동차 이름이 겹칠 때 예외 테스트")
-    public void carNameDuplicateTest() {
-        String inputString = "pobi,pobi";
-        assertThrows(IllegalArgumentException.class, () -> {
-            RacingCarInputValidation.validateCarNameDuplicate(java.util.List.of(inputString.split(",")));
-        });
-    }
 
     @Test
     @DisplayName("문자열이 빈 공백이 들어왔을 때 예외 테스트")
@@ -41,7 +33,7 @@ public class RacingCarInputTest {
     public void carNameBlankTest() {
         String string = "pobi, ,a";
         assertThrows(IllegalArgumentException.class, () -> {
-            RacingCarInputValidation.validateCarNameBlank(java.util.List.of(string.split(",")));
+            CarListValidation.validateCarNameBlank(java.util.List.of(string.split(",")));
         });
     }
 
@@ -50,7 +42,16 @@ public class RacingCarInputTest {
     public void carNameLengthLimitTest() {
         String string = "pobi,abcdefghijklmn";
         assertThrows(IllegalArgumentException.class, () -> {
-            RacingCarInputValidation.validateCarNameLengthLimit(java.util.List.of(string.split(",")));
+            CarListValidation.validateCarNameLengthLimit(java.util.List.of(string.split(",")));
+        });
+    }
+
+    @Test
+    @DisplayName("자동차 이름이 겹칠 때 예외 테스트")
+    public void carNameDuplicateTest() {
+        String inputString = "pobi,pobi";
+        assertThrows(IllegalArgumentException.class, () -> {
+            CarListValidation.validateCarNameDuplicate(java.util.List.of(inputString.split(",")));
         });
     }
 

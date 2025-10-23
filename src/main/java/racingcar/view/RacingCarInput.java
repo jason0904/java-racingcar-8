@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.PlayCount;
+import racingcar.validation.CarListValidation;
 import racingcar.validation.RacingCarInputValidation;
 
 public class RacingCarInput {
@@ -21,9 +22,9 @@ public class RacingCarInput {
         RacingCarInputValidation.validateStringLastComma(inputString);
 
         carNames = List.of(inputString.split(","));
-        RacingCarInputValidation.validateCarNameBlank(carNames);
-        RacingCarInputValidation.validateCarNameDuplicate(carNames);
-        RacingCarInputValidation.validateCarNameLengthLimit(carNames);
+        CarListValidation.validateCarNameBlank(carNames);
+        CarListValidation.validateCarNameLengthLimit(carNames);
+        CarListValidation.validateCarNameDuplicate(carNames);
 
         return Collections.unmodifiableList(carNames);
     }
