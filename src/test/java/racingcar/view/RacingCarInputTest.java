@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import racingcar.model.PlayCount;
 import racingcar.validation.CarListValidation;
+import racingcar.validation.CarNameMaxLength;
 import racingcar.validation.ErrorMessage;
 import racingcar.validation.RacingCarInputValidation;
 
@@ -44,7 +45,8 @@ public class RacingCarInputTest {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () ->
            CarListValidation.validateCarNameLengthLimit(List.of(inputString.split(","))));
 
-        assertEquals(ErrorMessage.CARNAME_LIMIT_ERROR.getMessage() +  "\n5자 이상인 자동차 이름 : " + "abcdef",
+        assertEquals(ErrorMessage.CARNAME_LIMIT_ERROR.getMessage() +  "\n" 
+        + Integer.toString(CarNameMaxLength.MAX_LENGTH) + "자 이상인 자동차 이름 : " + "abcdef",
                 exception.getMessage());
     }
 
