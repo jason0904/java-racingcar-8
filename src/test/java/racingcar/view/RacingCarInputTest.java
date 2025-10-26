@@ -66,7 +66,7 @@ public class RacingCarInputTest {
     @DisplayName("시도할 횟수가 숫자가 아닐경우 테스트")
     public void countIsNotNumberTest() {
         assertThrows(IllegalArgumentException.class, () -> {
-            PlayCount playCount = new PlayCount("a");
+            new PlayCount("a");
         });
     }
 
@@ -74,7 +74,7 @@ public class RacingCarInputTest {
     @DisplayName("시도할 횟수가 실수일경우 테스트")
     public void countIsNotIntegerTest() {
         assertThrows(IllegalArgumentException.class, () -> {
-            PlayCount playCount = new PlayCount("1.5");
+            new PlayCount("1.5");
         });
     }
 
@@ -82,7 +82,7 @@ public class RacingCarInputTest {
     @DisplayName("시도할 횟수가 0일때 테스트")
     public void countIsZeroTest() {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            PlayCount playCount = new PlayCount("0");
+            new PlayCount("0");
         });
         assertEquals(ErrorMessage.COUNT_IS_ZERO_ERROR.getMessage(), exception.getMessage());
     }
@@ -91,7 +91,7 @@ public class RacingCarInputTest {
     @DisplayName("시도할 횟수가 음수일때 테스트")
     public void countIsNegativeTest(){
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            PlayCount playCount = new PlayCount("-1");
+            new PlayCount("-1");
         });
         assertEquals(ErrorMessage.COUNT_NOT_POSITIVE_ERROR.getMessage(), exception.getMessage());
     }
